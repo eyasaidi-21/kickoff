@@ -390,7 +390,7 @@ function clearFieldError(fieldId) {
 
 // Clear all field errors
 function clearAllErrors() {
-  const fields = ["fullName", "email", "phone", "cin", "allergies", "position", "department","photo"];
+  const fields = ["fullName", "email", "phone", "cin", "allergies", "position", "department", "photo"];
   fields.forEach(clearFieldError);
   if (formAlert) {
     formAlert.style.display = "none";
@@ -421,7 +421,7 @@ cinInput?.addEventListener("input", (e) => {
 // Validate all form fields with Friendly Pirate Error Messages
 function validateForm() {
   clearAllErrors();
-    // 7. Photo
+  // 7. Photo
   const photoFile = document.getElementById("photo").files[0];
   if (!photoFile || !photoFile.type.startsWith("image/")) {
     setFieldError("photo", "📸 Arr! Upload a photo of yourself for the crew portrait.");
@@ -557,8 +557,7 @@ if (form) {
       console.error("Submission error:", err);
       if (formAlert) {
         formAlert.className = "form-alert alert-error";
-        formAlert.textContent = "⚓ An ocean tempest disrupted your transmission! Please try again in a moment.";
-        formAlert.style.display = "block";
+        formAlert.textContent = "⚓ An ocean tempest disrupted your transmission! (" + (err && err.message ? err.message : err) + ")"; formAlert.style.display = "block";
       }
     } finally {
       // Restore submit button state
@@ -617,44 +616,44 @@ function triggerCoinBurst() {
     setTimeout(() => coin.remove(), 1300);
   }
   // ---------- PHOTO UPLOAD ----------
-const photoInput = document.getElementById("photo");
-const photoPreview = document.getElementById("photo-preview");
+  const photoInput = document.getElementById("photo");
+  const photoPreview = document.getElementById("photo-preview");
 
-photoInput?.addEventListener("change", () => {
-  clearFieldError("photo");
-  const file = photoInput.files[0];
-  if (file && file.type.startsWith("image/")) {
-    photoPreview.src = URL.createObjectURL(file);
-    photoPreview.style.display = "block";
-  } else {
-    photoPreview.style.display = "none";
-  }
-});
-
-function resetPhotoPreview() {
-  if (photoPreview) {
-    photoPreview.style.display = "none";
-    photoPreview.removeAttribute("src");
-  }
-}
-
-// Shrinks the photo to max 600px and returns base64 text (keeps it small and fast)
-function resizeImage(file) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    const url = URL.createObjectURL(file);
-    img.onload = () => {
-      const max = 600;
-      const scale = Math.min(1, max / Math.max(img.width, img.height));
-      const c = document.createElement("canvas");
-      c.width = Math.round(img.width * scale);
-      c.height = Math.round(img.height * scale);
-      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
-      URL.revokeObjectURL(url);
-      resolve(c.toDataURL("image/jpeg", 0.75).split(",")[1]);
-    };
-    img.onerror = () => reject(new Error("Invalid image"));
-    img.src = url;
+  photoInput?.addEventListener("change", () => {
+    clearFieldError("photo");
+    const file = photoInput.files[0];
+    if (file && file.type.startsWith("image/")) {
+      photoPreview.src = URL.createObjectURL(file);
+      photoPreview.style.display = "block";
+    } else {
+      photoPreview.style.display = "none";
+    }
   });
-}
+
+  function resetPhotoPreview() {
+    if (photoPreview) {
+      photoPreview.style.display = "none";
+      photoPreview.removeAttribute("src");
+    }
+  }
+
+  // Shrinks the photo to max 600px and returns base64 text (keeps it small and fast)
+  function resizeImage(file) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const max = 600;
+        const scale = Math.min(1, max / Math.max(img.width, img.height));
+        const c = document.createElement("canvas");
+        c.width = Math.round(img.width * scale);
+        c.height = Math.round(img.height * scale);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        resolve(c.toDataURL("image/jpeg", 0.75).split(",")[1]);
+      };
+      img.onerror = () => reject(new Error("Invalid image"));
+      img.src = url;
+    });
+  }
 }
