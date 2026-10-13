@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>KICK OFF 2026 | AIESEC in Medina</title>
-  <meta name="description" content="KICK OFF 2026 - AIESEC in Medina Conference. October 23-25, 2026 at Hotel Caribbean World Hammamet. Board the ship and sign the crew contract!">
+  <meta name="description"
+    content="KICK OFF 2026 - AIESEC in Medina Conference. October 23-25, 2026 at Hotel Caribbean World Hammamet. Board the ship and sign the crew contract!">
 
   <!-- OpenGraph & WhatsApp preview -->
   <meta property="og:title" content="KICK OFF 2026 | AIESEC in Medina">
-  <meta property="og:description" content="Set sail for KICK OFF 2026 at Hotel Caribbean World Hammamet! October 23-25, 2026. Sign and join the pirate crew!">
+  <link rel="icon" type="image/png" href="assets/logo.jpg">
+  <meta property="og:description"
+    content="Set sail for KICK OFF 2026 at Hotel Caribbean World Hammamet! October 23-25, 2026. Sign and join the pirate crew!">
   <meta property="og:image" content="assets/hero-ship.jpg">
   <meta property="og:type" content="website">
 
   <!-- Google Fonts: Pirate & Display Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Pirata+One&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Pirata+One&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- Falling Gold Coins Canvas (ambient background animation) -->
@@ -49,7 +56,7 @@
       <p class="intro-org">AIESEC IN MEDINA PRESENTS</p>
       <h1 class="intro-title">KICK OFF</h1>
       <p class="intro-tagline">Pirates of the Caribbean Edition</p>
-      
+
       <div class="intro-details">
         <span>🗓️ October 23, 24, 25, 2026</span>
         <span class="intro-bullet">•</span>
@@ -75,7 +82,7 @@
     <!-- ======================================================= -->
     <section id="hero-section" class="hero-section">
       <div class="hero-container">
-        
+        <img src="assets/logo.jpg" alt="AIESEC in Medina logo" class="site-logo">
         <!-- Header & Badges -->
         <div class="hero-badge">
           <span class="compass-icon">🧭</span>
@@ -162,7 +169,8 @@
 
       <!-- Ocean Waves Divider -->
       <div class="waves-divider" aria-hidden="true">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none"
+          shape-rendering="auto">
           <defs>
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
           </defs>
@@ -189,10 +197,11 @@
 
         <!-- The Parchment Contract Card -->
         <div class="parchment-contract">
-          
+
           <!-- Wax Seal Stamp Graphic -->
           <div class="wax-seal-container" title="Sealed by Order of the Captain">
-            <img src="assets/wax-seal.jpg" alt="Crimson Wax Seal" class="wax-seal-img" onerror="this.style.display='none'; document.getElementById('wax-seal-fallback').style.display='flex';">
+            <img src="assets/wax-seal.jpg" alt="Crimson Wax Seal" class="wax-seal-img"
+              onerror="this.style.display='none'; document.getElementById('wax-seal-fallback').style.display='flex';">
             <div id="wax-seal-fallback" class="wax-seal-fallback" style="display:none;">
               <span>⚓</span>
             </div>
@@ -202,7 +211,8 @@
           <header class="contract-header">
             <div class="contract-preamble">ARTICLE OF THE HIGH SEAS • AIESEC IN MEDINA</div>
             <h2 class="contract-title">CREW ARTICLES OF AGREEMENT</h2>
-            <p class="contract-subtitle">Inscribe your name upon the ship's roster, swear allegiance to the crew, and prepare to set sail for Hotel Caribbean World Hammamet.</p>
+            <p class="contract-subtitle">Inscribe your name upon the ship's roster, swear allegiance to the crew, and
+              prepare to set sail for Hotel Caribbean World Hammamet.</p>
             <div class="parchment-rule"></div>
           </header>
 
@@ -215,15 +225,8 @@
                 <span class="label-icon">👤</span> Full Name <span class="req">*</span>
               </label>
               <div class="input-wrapper">
-                <input 
-                  type="text" 
-                  id="fullName" 
-                  name="fullName" 
-                  class="form-control" 
-                  placeholder="e.g. Jack Sparrow" 
-                  autocomplete="name" 
-                  required
-                >
+                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="e.g. Jack Sparrow"
+                  autocomplete="name" required>
               </div>
               <div class="error-msg" id="error-fullName"></div>
             </div>
@@ -234,15 +237,8 @@
                 <span class="label-icon">✉️</span> Email Address <span class="req">*</span>
               </label>
               <div class="input-wrapper">
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  class="form-control" 
-                  placeholder="e.g. sailor@aiesec.net" 
-                  autocomplete="email" 
-                  required
-                >
+                <input type="email" id="email" name="email" class="form-control" placeholder="e.g. sailor@aiesec.net"
+                  autocomplete="email" required>
               </div>
               <div class="error-msg" id="error-email"></div>
             </div>
@@ -256,18 +252,9 @@
                 <span class="phone-prefix" title="Tunisia Country Code">
                   <span class="flag-icon">🇹🇳</span> +216
                 </span>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  name="phone" 
-                  class="form-control phone-input" 
-                  placeholder="8 digits (e.g. 98123456)" 
-                  maxlength="8" 
-                  inputmode="numeric" 
-                  pattern="[0-9]{8}" 
-                  autocomplete="tel-national" 
-                  required
-                >
+                <input type="tel" id="phone" name="phone" class="form-control phone-input"
+                  placeholder="8 digits (e.g. 98123456)" maxlength="8" inputmode="numeric" pattern="[0-9]{8}"
+                  autocomplete="tel-national" required>
               </div>
               <div class="error-msg" id="error-phone"></div>
             </div>
@@ -278,17 +265,9 @@
                 <span class="label-icon">🪪</span> CIN (National ID) <span class="req">*</span>
               </label>
               <div class="input-wrapper">
-                <input 
-                  type="text" 
-                  id="cin" 
-                  name="cin" 
-                  class="form-control" 
-                  placeholder="Exactly 8 digits (e.g. 12345678)" 
-                  maxlength="8" 
-                  inputmode="numeric" 
-                  pattern="[0-9]{8}" 
-                  required
-                >
+                <input type="text" id="cin" name="cin" class="form-control"
+                  placeholder="Exactly 8 digits (e.g. 12345678)" maxlength="8" inputmode="numeric" pattern="[0-9]{8}"
+                  required>
               </div>
               <div class="error-msg" id="error-cin"></div>
             </div>
@@ -299,13 +278,8 @@
                 <span class="label-icon">🩹</span> Allergies <span class="opt">(Optional)</span>
               </label>
               <div class="input-wrapper">
-                <input 
-                  type="text" 
-                  id="allergies" 
-                  name="allergies" 
-                  class="form-control" 
-                  placeholder="Write 'None' if no allergies"
-                >
+                <input type="text" id="allergies" name="allergies" class="form-control"
+                  placeholder="Write 'None' if no allergies">
               </div>
               <div class="error-msg" id="error-allergies"></div>
             </div>
@@ -350,6 +324,15 @@
               </div>
               <div class="error-msg" id="error-department"></div>
             </div>
+            <!-- Photo Upload -->
+            <div class="form-group" id="group-photo">
+              <label for="photo" class="form-label">
+                <span class="label-icon">📸</span> Your Photo <span class="req">*</span>
+              </label>
+              <input type="file" id="photo" name="photo" class="form-control photo-input" accept="image/*">
+              <img id="photo-preview" class="photo-preview" alt="Photo preview" style="display:none;">
+              <div class="error-msg" id="error-photo"></div>
+            </div>
 
             <!-- General Submission Status / Alert Banner -->
             <div id="form-alert" class="form-alert" style="display:none;"></div>
@@ -379,7 +362,8 @@
   <!-- ========================================================= -->
   <!-- SUCCESS MODAL ("Welcome aboard, [Name]! ⚓🏴☠️")            -->
   <!-- ========================================================= -->
-  <div id="success-modal" class="success-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="success-modal" class="success-modal" style="display:none;" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title">
     <div class="modal-backdrop" id="modal-backdrop"></div>
     <div class="modal-card">
       <div class="modal-seal">
@@ -430,4 +414,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>

@@ -390,7 +390,7 @@ function clearFieldError(fieldId) {
 
 // Clear all field errors
 function clearAllErrors() {
-  const fields = ["fullName", "email", "phone", "cin", "allergies", "position", "department"];
+  const fields = ["fullName", "email", "phone", "cin", "allergies", "position", "department","photo"];
   fields.forEach(clearFieldError);
   if (formAlert) {
     formAlert.style.display = "none";
@@ -421,6 +421,15 @@ cinInput?.addEventListener("input", (e) => {
 // Validate all form fields with Friendly Pirate Error Messages
 function validateForm() {
   clearAllErrors();
+    // 7. Photo
+  const photoFile = document.getElementById("photo").files[0];
+  if (!photoFile || !photoFile.type.startsWith("image/")) {
+    setFieldError("photo", "📸 Arr! Upload a photo of yourself for the crew portrait.");
+    isValid = false;
+  } else if (photoFile.size > 15 * 1024 * 1024) {
+    setFieldError("photo", "📸 That photo is too heavy for the ship! Max 15 MB.");
+    isValid = false;
+  }
   let isValid = true;
 
   const fullName = document.getElementById("fullName").value.trim();
@@ -512,6 +521,7 @@ if (form) {
     btnText.textContent = "⚓ Inscribing into Ship's Log...";
 
     try {
+      submissionData.photo = await resizeImage(document.getElementById("photo").files[0]);
       // 2. Submit to Google Sheet Connector
       const isPlaceholderUrl = GOOGLE_SHEET_URL.includes("YOUR_SCRIPT_ID");
 
@@ -541,6 +551,7 @@ if (form) {
       // 3. Show Success Modal: "Welcome aboard, [Name]! ⚓🏴☠️"
       showSuccessModal(fullName, position, department);
       form.reset();
+      resetPhotoPreview();
 
     } catch (err) {
       console.error("Submission error:", err);
@@ -605,4 +616,45 @@ function triggerCoinBurst() {
 
     setTimeout(() => coin.remove(), 1300);
   }
+  // ---------- PHOTO UPLOAD ----------
+const photoInput = document.getElementById("photo");
+const photoPreview = document.getElementById("photo-preview");
+
+photoInput?.addEventListener("change", () => {
+  clearFieldError("photo");
+  const file = photoInput.files[0];
+  if (file && file.type.startsWith("image/")) {
+    photoPreview.src = URL.createObjectURL(file);
+    photoPreview.style.display = "block";
+  } else {
+    photoPreview.style.display = "none";
+  }
+});
+
+function resetPhotoPreview() {
+  if (photoPreview) {
+    photoPreview.style.display = "none";
+    photoPreview.removeAttribute("src");
+  }
+}
+
+// Shrinks the photo to max 600px and returns base64 text (keeps it small and fast)
+function resizeImage(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const max = 600;
+      const scale = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * scale);
+      c.height = Math.round(img.height * scale);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      resolve(c.toDataURL("image/jpeg", 0.75).split(",")[1]);
+    };
+    img.onerror = () => reject(new Error("Invalid image"));
+    img.src = url;
+  });
+}
 }
