@@ -3,7 +3,7 @@
 // =========================================================
 
 // 1. GOOGLE APPS SCRIPT WEB APP URL  <-- PASTE YOUR WORKING /exec URL HERE
-const GOOGLE_SHEET_URL = "PASTE_YOUR_CURRENT_EXEC_URL_HERE";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwiSKunlyVzmnUq95CX9u5e8Hb9JtW0jykkCl4irDy5SgRWrLjNSnRJxS1RZ1N0xq8N/exec";
 
 // 2. COUNTDOWN (Target: October 23, 2026 at 09:00)
 const TARGET_DATE = new Date("2026-10-23T09:00:00+01:00").getTime();
