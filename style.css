@@ -1382,4 +1382,32 @@ body {
     margin-top: 10px;
     align-self: center;
   }
+
+  .payment-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #fffaf0;
+    border: 1.5px dashed var(--parchment-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #2c1a0e;
+  }
+
+  .payment-check input {
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: #8e1b1b;
+    cursor: pointer;
+  }
+
+  .form-group.has-error .payment-check {
+    border-color: var(--crimson-red);
+    background: #fff3f3;
+  }
 }

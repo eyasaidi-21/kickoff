@@ -286,7 +286,7 @@ const passName = document.getElementById("pass-name");
 const passPosition = document.getElementById("pass-position");
 const passDepartment = document.getElementById("pass-department");
 
-const FIELD_IDS = ["fullName", "email", "phone", "cin", "allergies", "position", "department", "photo"];
+const FIELD_IDS = ["fullName", "email", "phone", "cin", "allergies", "position", "department", "photo", "payment"];
 
 function setFieldError(fieldId, errorMsg) {
   const group = document.getElementById(`group-${fieldId}`);
@@ -423,6 +423,11 @@ function validateForm() {
     isValid = false;
   } else if (photoFile.size > 15 * 1024 * 1024) {
     setFieldError("photo", "📸 That photo is too heavy for the ship! Max 15 MB.");
+    isValid = false;
+  }
+  const payBox = document.getElementById("payment");
+  if (!payBox || !payBox.checked) {
+    setFieldError("payment", "💰 Avast! You must pledge to pay the 150 TND fee before October 20, 2026.");
     isValid = false;
   }
 

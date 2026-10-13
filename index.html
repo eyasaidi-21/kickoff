@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>KICK OFF 2026 | AIESEC in Medina</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
   <meta name="description"
     content="KICK OFF 2026 - AIESEC in Medina Conference. October 23-25, 2026 at Hotel Caribbean World Hammamet. Board the ship and sign the crew contract!">
 
   <!-- OpenGraph & WhatsApp preview -->
   <meta property="og:title" content="KICK OFF 2026 | AIESEC in Medina">
-  <link rel="icon" type="image/png" href="assets/logo.jpg">
   <meta property="og:description"
     content="Set sail for KICK OFF 2026 at Hotel Caribbean World Hammamet! October 23-25, 2026. Sign and join the pirate crew!">
-  <meta property="og:image" content="assets/hero-ship.jpg">
+  <meta property="og:image" content="https://eyasaidi-21.github.io/kickoff/assets/logo.png">
   <meta property="og:type" content="website">
 
   <!-- Google Fonts: Pirate & Display Fonts -->
@@ -82,7 +82,7 @@
     <!-- ======================================================= -->
     <section id="hero-section" class="hero-section">
       <div class="hero-container">
-        <img src="assets/logo.jpg" alt="AIESEC in Medina logo" class="site-logo"
+        <img src="assets/logo.png" alt="AIESEC in Medina logo" class="site-logo"
           style="display:block; margin:0 auto 18px; height:90px; width:auto; max-width:70vw; object-fit:contain;">
         <!-- Header & Badges -->
         <div class="hero-badge">
@@ -94,7 +94,7 @@
         <h1 class="hero-title">KICK OFF</h1>
         <p class="hero-edition">Set Sail • Pirates of the Caribbean</p>
 
-        <!-- Dates & Venue Cards -->
+        <!-- Dates, Venue & Price Cards -->
         <div class="event-meta-cards">
           <div class="meta-card">
             <span class="meta-icon">🗓️</span>
@@ -109,6 +109,14 @@
             <div class="meta-info">
               <span class="meta-label">SECRET PORT / VENUE</span>
               <span class="meta-val">Hotel Caribbean World Hammamet</span>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <span class="meta-icon">💰</span>
+            <div class="meta-info">
+              <span class="meta-label">CREW FEE</span>
+              <span class="meta-val">150 TND • Full board</span>
             </div>
           </div>
         </div>
@@ -325,6 +333,7 @@
               </div>
               <div class="error-msg" id="error-department"></div>
             </div>
+
             <!-- Photo Upload -->
             <div class="form-group" id="group-photo">
               <label for="photo" class="form-label">
@@ -333,6 +342,16 @@
               <input type="file" id="photo" name="photo" class="form-control photo-input" accept="image/*">
               <img id="photo-preview" class="photo-preview" alt="Photo preview" style="display:none;">
               <div class="error-msg" id="error-photo"></div>
+            </div>
+
+            <!-- Payment Pledge -->
+            <div class="form-group" id="group-payment">
+              <label class="payment-check" for="payment">
+                <input type="checkbox" id="payment" name="payment">
+                <span>💰 I pledge to pay the <strong>150 TND</strong> fee (full board) before
+                  <strong>October 20, 2026</strong>. <span class="req">*</span></span>
+              </label>
+              <div class="error-msg" id="error-payment"></div>
             </div>
 
             <!-- General Submission Status / Alert Banner -->
@@ -399,6 +418,10 @@
           <div class="pass-row">
             <span class="pass-label">Destination:</span>
             <span class="pass-value">Hotel Caribbean World Hammamet</span>
+          </div>
+          <div class="pass-row">
+            <span class="pass-label">Fee:</span>
+            <span class="pass-value">150 TND before Oct 20</span>
           </div>
         </div>
       </div>
