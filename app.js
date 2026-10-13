@@ -9,7 +9,7 @@
 // -------------------------------------------------------------------------
 // Paste your deployed Google Apps Script Web App URL below:
 // (See README.md or google-apps-script.js for 1-minute setup instructions)
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbw8XiVt_aInOte5exT10be_-myQNvAFusXmslUwX_vKe94mhs4wbuhVGy546X9nbuGC/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwiSKunlyVzmnUq95CX9u5e8Hb9JtW0jykkCl4irDy5SgRWrLjNSnRJxS1RZ1N0xq8N/exec";
 
 
 // -------------------------------------------------------------------------
