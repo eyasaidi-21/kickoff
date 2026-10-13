@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>KICK OFF 2026 | AIESEC in Medina</title>
+  <meta name="description" content="KICK OFF 2026 - AIESEC in Medina Conference. October 23-25, 2026 at Hotel Caribbean World Hammamet. Board the ship and sign the crew contract!">
+
+  <!-- OpenGraph & WhatsApp preview -->
+  <meta property="og:title" content="KICK OFF 2026 | AIESEC in Medina">
+  <meta property="og:description" content="Set sail for KICK OFF 2026 at Hotel Caribbean World Hammamet! October 23-25, 2026. Sign and join the pirate crew!">
+  <meta property="og:image" content="assets/hero-ship.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Pirate & Display Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Pirata+One&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Falling Gold Coins Canvas (ambient background animation) -->
+  <canvas id="coins-canvas"></canvas>
+
+  <!-- Background Music Audio Element -->
+  <audio id="pirate-audio" src="assets/pirates-theme.mp3" loop preload="auto"></audio>
+
+  <!-- Small Floating Mute/Unmute Audio Button (Top-Right) -->
+  <button id="floating-audio-btn" class="floating-audio-btn" aria-label="Toggle Sound" title="Sound Control">
+    <div class="audio-waves" id="audio-waves">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span id="audio-icon" class="audio-icon">🔊</span>
+    <span class="audio-label">MUSIC</span>
+  </button>
+
+  <!-- ========================================================= -->
+  <!-- 1. FULL-SCREEN INTRO SCREEN ("⚓ Board the Ship")          -->
+  <!-- ========================================================= -->
+  <div id="intro-screen" class="intro-screen">
+    <div class="intro-overlay"></div>
+    <div class="intro-content">
+      <div class="intro-emblem">
+        <span class="intro-skull">☠️</span>
+        <div class="intro-compass-ring"></div>
+      </div>
+      <p class="intro-org">AIESEC IN MEDINA PRESENTS</p>
+      <h1 class="intro-title">KICK OFF</h1>
+      <p class="intro-tagline">Pirates of the Caribbean Edition</p>
+      
+      <div class="intro-details">
+        <span>🗓️ October 23, 24, 25, 2026</span>
+        <span class="intro-bullet">•</span>
+        <span>📍 Hotel Caribbean World Hammamet</span>
+      </div>
+
+      <p class="intro-sound-hint">🔊 Turn your volume up for the full adventure!</p>
+
+      <button id="board-ship-btn" class="board-ship-btn" type="button">
+        <span class="board-btn-glow"></span>
+        <span class="board-btn-text">⚓ Board the Ship</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MAIN PAGE CONTENT                                         -->
+  <!-- ========================================================= -->
+  <main id="main-content" class="main-content">
+
+    <!-- ======================================================= -->
+    <!-- CONTENT ITEM 1: TITLE, DATES, HOTEL & LIVE COUNTDOWN    -->
+    <!-- ======================================================= -->
+    <section id="hero-section" class="hero-section">
+      <div class="hero-container">
+        
+        <!-- Header & Badges -->
+        <div class="hero-badge">
+          <span class="compass-icon">🧭</span>
+          <span>AIESEC IN MEDINA CONFERENCE</span>
+          <span class="compass-icon">🧭</span>
+        </div>
+
+        <h1 class="hero-title">KICK OFF</h1>
+        <p class="hero-edition">Set Sail • Pirates of the Caribbean</p>
+
+        <!-- Dates & Venue Cards -->
+        <div class="event-meta-cards">
+          <div class="meta-card">
+            <span class="meta-icon">🗓️</span>
+            <div class="meta-info">
+              <span class="meta-label">VOYAGE DATES</span>
+              <span class="meta-val">October 23, 24, 25, 2026</span>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <span class="meta-icon">🏰</span>
+            <div class="meta-info">
+              <span class="meta-label">SECRET PORT / VENUE</span>
+              <span class="meta-val">Hotel Caribbean World Hammamet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Countdown Timer -->
+        <div class="countdown-wrapper">
+          <div class="countdown-header">
+            <span class="hourglass-icon">⏳</span>
+            <h2 class="countdown-title">COUNTDOWN TO WEIGHING ANCHOR</h2>
+            <span class="hourglass-icon">⏳</span>
+          </div>
+
+          <div class="countdown-grid" id="countdown-grid">
+            <div class="countdown-card">
+              <div class="countdown-num-box">
+                <span id="days" class="countdown-num">00</span>
+              </div>
+              <span class="countdown-label">DAYS</span>
+            </div>
+
+            <div class="countdown-divider">:</div>
+
+            <div class="countdown-card">
+              <div class="countdown-num-box">
+                <span id="hours" class="countdown-num">00</span>
+              </div>
+              <span class="countdown-label">HOURS</span>
+            </div>
+
+            <div class="countdown-divider">:</div>
+
+            <div class="countdown-card">
+              <div class="countdown-num-box">
+                <span id="minutes" class="countdown-num">00</span>
+              </div>
+              <span class="countdown-label">MINUTES</span>
+            </div>
+
+            <div class="countdown-divider">:</div>
+
+            <div class="countdown-card">
+              <div class="countdown-num-box">
+                <span id="seconds" class="countdown-num">00</span>
+              </div>
+              <span class="countdown-label">SECONDS</span>
+            </div>
+          </div>
+
+          <p class="countdown-target">Target: Friday, October 23, 2026 • 09:00 AM</p>
+        </div>
+
+        <!-- Smooth Anchor Link to Registration -->
+        <a href="#contract-section" class="hero-scroll-btn" aria-label="Scroll to crew registration contract">
+          <span>📜 Sign the Contract Below</span>
+          <div class="scroll-arrow">⚓</div>
+        </a>
+
+      </div>
+
+      <!-- Ocean Waves Divider -->
+      <div class="waves-divider" aria-hidden="true">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="parallax-waves">
+            <use href="#gentle-wave" x="48" y="0" fill="rgba(10, 25, 47, 0.4)" />
+            <use href="#gentle-wave" x="48" y="3" fill="rgba(14, 33, 61, 0.6)" />
+            <use href="#gentle-wave" x="48" y="5" fill="rgba(8, 20, 37, 0.8)" />
+            <use href="#gentle-wave" x="48" y="7" fill="#07111e" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- CONTENT ITEM 2: PIRATE CREW CONTRACT REGISTRATION FORM  -->
+    <!-- ======================================================= -->
+    <section id="contract-section" class="contract-section">
+      <div class="contract-wrapper">
+
+        <!-- Decorative Nautical Elements -->
+        <div class="contract-decor-top">
+          <div class="ship-wheel-graphic">☸️</div>
+        </div>
+
+        <!-- The Parchment Contract Card -->
+        <div class="parchment-contract">
+          
+          <!-- Wax Seal Stamp Graphic -->
+          <div class="wax-seal-container" title="Sealed by Order of the Captain">
+            <img src="assets/wax-seal.jpg" alt="Crimson Wax Seal" class="wax-seal-img" onerror="this.style.display='none'; document.getElementById('wax-seal-fallback').style.display='flex';">
+            <div id="wax-seal-fallback" class="wax-seal-fallback" style="display:none;">
+              <span>⚓</span>
+            </div>
+          </div>
+
+          <!-- Parchment Header -->
+          <header class="contract-header">
+            <div class="contract-preamble">ARTICLE OF THE HIGH SEAS • AIESEC IN MEDINA</div>
+            <h2 class="contract-title">CREW ARTICLES OF AGREEMENT</h2>
+            <p class="contract-subtitle">Inscribe your name upon the ship's roster, swear allegiance to the crew, and prepare to set sail for Hotel Caribbean World Hammamet.</p>
+            <div class="parchment-rule"></div>
+          </header>
+
+          <!-- The Registration Form -->
+          <form id="registration-form" class="registration-form" novalidate>
+
+            <!-- Full Name -->
+            <div class="form-group" id="group-fullName">
+              <label for="fullName" class="form-label">
+                <span class="label-icon">👤</span> Full Name <span class="req">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="fullName" 
+                  name="fullName" 
+                  class="form-control" 
+                  placeholder="e.g. Jack Sparrow" 
+                  autocomplete="name" 
+                  required
+                >
+              </div>
+              <div class="error-msg" id="error-fullName"></div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group" id="group-email">
+              <label for="email" class="form-label">
+                <span class="label-icon">✉️</span> Email Address <span class="req">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-control" 
+                  placeholder="e.g. sailor@aiesec.net" 
+                  autocomplete="email" 
+                  required
+                >
+              </div>
+              <div class="error-msg" id="error-email"></div>
+            </div>
+
+            <!-- Phone Number (+216 8 digits) -->
+            <div class="form-group" id="group-phone">
+              <label for="phone" class="form-label">
+                <span class="label-icon">📱</span> Phone Number <span class="req">*</span>
+              </label>
+              <div class="phone-input-group">
+                <span class="phone-prefix" title="Tunisia Country Code">
+                  <span class="flag-icon">🇹🇳</span> +216
+                </span>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  class="form-control phone-input" 
+                  placeholder="8 digits (e.g. 98123456)" 
+                  maxlength="8" 
+                  inputmode="numeric" 
+                  pattern="[0-9]{8}" 
+                  autocomplete="tel-national" 
+                  required
+                >
+              </div>
+              <div class="error-msg" id="error-phone"></div>
+            </div>
+
+            <!-- CIN (exactly 8 digits) -->
+            <div class="form-group" id="group-cin">
+              <label for="cin" class="form-label">
+                <span class="label-icon">🪪</span> CIN (National ID) <span class="req">*</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="cin" 
+                  name="cin" 
+                  class="form-control" 
+                  placeholder="Exactly 8 digits (e.g. 12345678)" 
+                  maxlength="8" 
+                  inputmode="numeric" 
+                  pattern="[0-9]{8}" 
+                  required
+                >
+              </div>
+              <div class="error-msg" id="error-cin"></div>
+            </div>
+
+            <!-- Allergies (Optional) -->
+            <div class="form-group" id="group-allergies">
+              <label for="allergies" class="form-label">
+                <span class="label-icon">🩹</span> Allergies <span class="opt">(Optional)</span>
+              </label>
+              <div class="input-wrapper">
+                <input 
+                  type="text" 
+                  id="allergies" 
+                  name="allergies" 
+                  class="form-control" 
+                  placeholder="Write 'None' if no allergies"
+                >
+              </div>
+              <div class="error-msg" id="error-allergies"></div>
+            </div>
+
+            <!-- Position Dropdown -->
+            <div class="form-group" id="group-position">
+              <label for="position" class="form-label">
+                <span class="label-icon">🎖️</span> Crew Position / Rank <span class="req">*</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="position" name="position" class="form-control custom-select" required>
+                  <option value="" disabled selected>— Select your rank aboard —</option>
+                  <option value="Newbie">Newbie 🐣</option>
+                  <option value="Oldie">Oldie ⚓</option>
+                  <option value="Manager">Manager 🧭</option>
+                  <option value="Team Leader">Team Leader ⚔️</option>
+                </select>
+                <span class="select-arrow">▼</span>
+              </div>
+              <div class="error-msg" id="error-position"></div>
+            </div>
+
+            <!-- Department Dropdown -->
+            <div class="form-group" id="group-department">
+              <label for="department" class="form-label">
+                <span class="label-icon">🏴☠️</span> Ship Division / Department <span class="req">*</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="department" name="department" class="form-control custom-select" required>
+                  <option value="" disabled selected>— Select your ship division —</option>
+                  <option value="OGV">OGV (Outgoing Global Volunteer)</option>
+                  <option value="OGT">OGT (Outgoing Global Talent)</option>
+                  <option value="IGV">IGV (Incoming Global Volunteer)</option>
+                  <option value="IGT">IGT (Incoming Global Talent)</option>
+                  <option value="F&L">F&L (Finance & Legal)</option>
+                  <option value="MKT">MKT (Marketing)</option>
+                  <option value="IM">IM (Information Management)</option>
+                  <option value="BD">BD (Business Development)</option>
+                  <option value="TM">TM (Talent Management)</option>
+                </select>
+                <span class="select-arrow">▼</span>
+              </div>
+              <div class="error-msg" id="error-department"></div>
+            </div>
+
+            <!-- General Submission Status / Alert Banner -->
+            <div id="form-alert" class="form-alert" style="display:none;"></div>
+
+            <!-- Submit Button ("Sign & Join the Crew") -->
+            <div class="form-actions">
+              <button type="submit" id="submit-btn" class="submit-btn-gold">
+                <span class="btn-shine"></span>
+                <span class="btn-spinner" id="btn-spinner" style="display:none;">⏳</span>
+                <span class="btn-text" id="btn-text">⚓ Sign & Join the Crew</span>
+              </button>
+            </div>
+
+            <p class="contract-footer-note">
+              🔒 By signing, you pledge your attendance for all 3 days at Hotel Caribbean World Hammamet.
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- SUCCESS MODAL ("Welcome aboard, [Name]! ⚓🏴☠️")            -->
+  <!-- ========================================================= -->
+  <div id="success-modal" class="success-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-card">
+      <div class="modal-seal">
+        <span class="modal-seal-icon">⚓</span>
+      </div>
+
+      <h2 id="modal-title" class="modal-title">Welcome aboard, <span id="modal-sailor-name">Matey</span>! ⚓🏴☠️</h2>
+      <p class="modal-subtitle">Your pirate contract has been signed and sealed into the ship's logbook.</p>
+
+      <div class="boarding-pass">
+        <div class="boarding-header">
+          <span>BOARDING PASS • KICK OFF 2026</span>
+          <span class="boarding-stamp">OFFICIAL</span>
+        </div>
+        <div class="boarding-body">
+          <div class="pass-row">
+            <span class="pass-label">Sailor:</span>
+            <span class="pass-value" id="pass-name">-</span>
+          </div>
+          <div class="pass-row">
+            <span class="pass-label">Rank:</span>
+            <span class="pass-value" id="pass-position">-</span>
+          </div>
+          <div class="pass-row">
+            <span class="pass-label">Division:</span>
+            <span class="pass-value" id="pass-department">-</span>
+          </div>
+          <div class="pass-row">
+            <span class="pass-label">Voyage Dates:</span>
+            <span class="pass-value">October 23 - 25, 2026</span>
+          </div>
+          <div class="pass-row">
+            <span class="pass-label">Destination:</span>
+            <span class="pass-value">Hotel Caribbean World Hammamet</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="modal-note">
+        Check your email for further instructions from your Captain. Prepare your compass and get ready to set sail!
+      </p>
+
+      <button type="button" id="close-modal-btn" class="modal-close-btn">
+        <span>Aye Aye, Captain! ⚔️</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
